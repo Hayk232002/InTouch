@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,21 +71,47 @@ public class DChatActivity extends AppCompatActivity {
         rv_chat.setAdapter(adapter);
         rv_chat.setHasFixedSize(true);
 
+        btn_chat.setEnabled(false);
+
+        et_chat.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    btn_chat.setEnabled(false);
+                    
+                } else {
+                    btn_chat.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
         btn_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!et_chat.getText().toString().equals("")){
                     Log.wtf("click", "userId:"+user.getUid()+" "+"uid:"+uid);
 
-                    FirebaseDatabase.getInstance().getReference("message").push().setValue(new ChatModel(user.getUid(), et_chat.getText().toString(), uid));
-                    FirebaseDatabase.getInstance().getReference("latest_message").child(user.getUid()).child(uid).setValue(new ProfileModel(downloadUri,user.getUid(),uid,et_chat.getText().toString(),uid,username));
-                    FirebaseDatabase.getInstance().getReference("latest_message").child(uid).child(user.getUid()).setValue(new ProfileModel(myDownloadUri,user.getUid(),user.getUid(),et_chat.getText().toString(),uid,myUsername));
+                    String a = et_chat.getText().toString().trim();
+
+                    FirebaseDatabase.getInstance().getReference("message").push().setValue(new ChatModel(user.getUid(), /*et_chat.getText().toString()*/ a, uid));
+                    FirebaseDatabase.getInstance().getReference("latest_message").child(user.getUid()).child(uid).setValue(new ProfileModel(downloadUri,user.getUid(),uid,/*et_chat.getText().toString()*/a,uid,username));
+                    FirebaseDatabase.getInstance().getReference("latest_message").child(uid).child(user.getUid()).setValue(new ProfileModel(myDownloadUri,user.getUid(),user.getUid(),/*et_chat.getText().toString()*/a,uid,myUsername));
                     rv_chat.scrollToPosition(adapter.getItemCount());
                     et_chat.setText("");
-                }
-                else {
-                    Log.wtf("text", "datark e");
-                }
             }
         });
     }
