@@ -1,0 +1,6 @@
+<resources>
+    <attr name="colorDarkAcc" format="reference"/>
+    <attr name="colorDarkDark" format="reference"/>
+    <attr name="colorDark" format="reference" />
+
+</resources>

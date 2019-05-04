@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">InTouch</string>
+    <string name="facebook_app_id">1120519531459840</string>
+    <string name="facebook_login_protocol_scheme">fb1120519531459840</string>
+    <string name="et_email_main_name">Email</string>
+    <string name="et_password_main_name">Password</string>
+    <string name="et_username_main"> "Username"</string>
+    <string name="et_mail"> "Email"</string>
+    <string name="et_mail_log"> "Email"</string>
+    <string name="et_password"> "password"</string>
+    <string name="et_password_log"> "password"</string>
+    <string name="Btn_reg"> REGISTER</string>
+    <string name="tv_already"> Already have an account </string>
+    <string name="Btn_log"> LogIn</string>
+    <string name="tv_back"> Back  to  registration</string>
+    <string name="btn_photo"> Add photo</string>
+    <string name="iv_photo"> Add photo</string>
+    <string name="tv_photo_name"> ADD PHOTO</string>
+    <string name="et_chat"> Message</string>
+
+
+</resources>

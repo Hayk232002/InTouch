@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "39006076423",
+    "firebase_url": "https://messenger-c92c5.firebaseio.com",
+    "project_id": "messenger-c92c5",
+    "storage_bucket": "messenger-c92c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39006076423:android:b3c62e39cd8e9a36",
+        "android_client_info": {
+          "package_name": "com.example.hayk.messenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39006076423-fg4cjssrcepmpui19mc91uuk9q1phrk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hayk.messenger",
+            "certificate_hash": "3d9ba9e71c01568b2e35f74727c3c7e4203d7be7"
+          }
+        },
+        {
+          "client_id": "39006076423-igqp2eet8jbb7udpnl1d36t176ohnnie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbWgYmSJMqrYqUywxQPMkPhph9lolZmTI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39006076423-igqp2eet8jbb7udpnl1d36t176ohnnie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
