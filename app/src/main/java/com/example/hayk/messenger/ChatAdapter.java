@@ -2,6 +2,7 @@ package com.example.hayk.messenger;
 
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,6 +34,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final int textOnly=1;
     private final int notTextOnly=0;
+    private final int typing=2;
 
     private DatabaseReference mRef;
 
@@ -67,11 +69,11 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Log.wtf("list_chat_model" , list_chat_model.get(count).getText() +" "+ list_chat_model.get(count).getToid()+" "+list_chat_model.get(count).getFromid());
 
             if (list_chat_model.get(count).getFromid().equals(userID) && list_chat_model.get(count).getToid().equals(opponentUid)){
-                list.add(new TextTemplate(list_chat_model.get(count).getText(),true));
+                list.add(new TextTemplate(list_chat_model.get(count).getText(),textOnly));
             }
 
             else if (list_chat_model.get(count).getFromid().equals(opponentUid) && list_chat_model.get(count).getToid().equals(userID)){
-                list.add(new TextTemplate(list_chat_model.get(count).getText(),false));
+                list.add(new TextTemplate(list_chat_model.get(count).getText(),notTextOnly));
             }
 
             Log.wtf("key",dataSnapshot.getKey());
@@ -163,13 +165,15 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemViewType(int position) {
 
-        if (list.get(position).getIs_text_only()){
+        if (list.get(position).getText_type() == textOnly){
             return textOnly;
         }
 
-        else if (!list.get(position).getIs_text_only()){
+        else if (list.get(position).getText_type() == notTextOnly){
             return notTextOnly;
         }
+
+//        else if ()
 
         return -1;
     }
@@ -197,6 +201,20 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(itemView);
             description = itemView.findViewById(R.id.tv_chat_from_row);
             iv = itemView.findViewById(R.id.iv_chat_from_row);
+        }
+
+        public void setDescription(String des) {
+            description.setText(des);
+        }
+    }
+
+    class Typing extends RecyclerView.ViewHolder{
+
+        private TextView description;
+
+        public Typing(@NonNull View itemView) {
+            super(itemView);
+            description = itemView.findViewById(R.id.tv_typing);
         }
 
         public void setDescription(String des) {

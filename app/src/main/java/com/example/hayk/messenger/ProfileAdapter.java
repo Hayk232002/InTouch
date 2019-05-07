@@ -200,4 +200,5 @@ public class ProfileAdapter extends  RecyclerView.Adapter<ProfileAdapter.Profile
             constraintLayout = (ConstraintLayout) itemView.findViewById(R.id.cl_profile_row);
         }
     }
+
 }

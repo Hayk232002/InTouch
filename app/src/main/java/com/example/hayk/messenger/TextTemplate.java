@@ -2,11 +2,11 @@ package com.example.hayk.messenger;
 
 public class TextTemplate {
     private String message;
-    private Boolean is_text_only;
+    private int text_type;
 
-    public TextTemplate(String message, Boolean is_text_only) {
+    public TextTemplate(String message, int text_type) {
         this.message = message;
-        this.is_text_only = is_text_only;
+        this.text_type = text_type;
     }
 
     public String getMessage() {
@@ -17,11 +17,11 @@ public class TextTemplate {
         this.message = message;
     }
 
-    public Boolean getIs_text_only() {
-        return is_text_only;
+    public int getText_type() {
+        return text_type;
     }
 
-    public void setIs_text_only(Boolean is_text_only) {
-        this.is_text_only = is_text_only;
+    public void setText_type(int text_type) {
+        this.text_type = text_type;
     }
 }

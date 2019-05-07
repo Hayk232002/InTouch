@@ -78,6 +78,8 @@ public class DChatActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+                Log.wtf("typing", s.toString());
+
                 if(s.toString().trim().length()==0){
                     btn_chat.setEnabled(false);
                     
